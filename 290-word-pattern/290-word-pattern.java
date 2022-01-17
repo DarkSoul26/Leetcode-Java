@@ -1,21 +1,21 @@
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        String[] strs = s.split(" ");
-        if(pattern.length()!=strs.length)
+        String[] words = s.split(" ");
+        Map<Character,String> wordMap = new HashMap<>();
+        Map<String, Character> charMap = new HashMap<>();
+        if(pattern.length()!=words.length){
             return false;
-        List<String> al = new ArrayList<>();
-        Map<Character, String> m = new HashMap<>();
-        for(int i=0;i<pattern.length();i++){
-            char k = pattern.charAt(i);
-            if(m.containsKey(k)){
-                if(!m.get(k).equals(strs[i]))
+        }
+        for(int i= 0;i<pattern.length();i++){
+            if(wordMap.containsKey(pattern.charAt(i)) && words[i].equals(wordMap.get(pattern.charAt(i)))){
+                continue;
+            } else if(!wordMap.containsKey(pattern.charAt(i))){
+                if(wordMap.containsValue(words[i])){
                     return false;
-            }
-            else{
-                if(al.contains(strs[i]))
-                    return false;
-                m.put(k,strs[i]);
-                al.add(strs[i]);
+                }
+                wordMap.put(pattern.charAt(i), words[i]);
+            } else if(wordMap.containsKey(pattern.charAt(i)) && !words[i].equals(wordMap.get(pattern.charAt(i)))){
+                return false;
             }
         }
         return true;
