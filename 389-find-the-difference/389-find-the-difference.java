@@ -1,24 +1,23 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        Map<Character, Integer> m = new HashMap<>();
+        if(s.length()==0){
+            return t.charAt(0);
+        }
+        char[] a=new char[s.length()];
+        char[] b=new char[t.length()];
         for(int i=0;i<t.length();i++){
-            if(i != s.length()){
-                char a = s.charAt(i);
-                if(m.containsKey(a))
-                    m.put(a, m.get(a)+1);
-                else
-                    m.put(a,1);
+            if(i!=t.length()-1){
+                a[i]=s.charAt(i);
             }
-            char b = t.charAt(i);
-            if(m.containsKey(b))
-                m.put(b, m.get(b)+1);
-            else
-                m.put(b,1);
+            b[i]=t.charAt(i);
         }
-        for(Map.Entry el: m.entrySet()){
-            if((int)el.getValue()%2!=0 || (int)el.getValue()==1)
-                return (char)el.getKey();
+        Arrays.sort(a);
+        Arrays.sort(b);
+        for(int i=0;i<s.length();i++){
+                if(a[i]!=b[i]){
+                    return b[i];
+                }
         }
-        return 'a';
+        return b[t.length()-1];
     }
 }
