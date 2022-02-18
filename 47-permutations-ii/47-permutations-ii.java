@@ -1,10 +1,9 @@
 class Solution {
-    List<List<Integer>> finalAns;
+    Set<List<Integer>> finalAns;
     public void permute(int[] nums, List<Integer> al, boolean[] a){
         List<Integer> al1 = new ArrayList<>(al);
         if(al1.size() == nums.length){
-            if(!finalAns.contains(al1))
-                finalAns.add(al1);
+            finalAns.add(al1);
             return;
         }
         for(int i=0;i<nums.length;i++){
@@ -18,9 +17,13 @@ class Solution {
         }
     }
     public List<List<Integer>> permuteUnique(int[] nums) {
-        finalAns = new ArrayList<>();
+        finalAns = new HashSet<>();
         boolean a[] = new boolean[nums.length];
         permute(nums, new ArrayList<Integer>(), a);
-        return finalAns;
+        List<List<Integer>> finalAl = new ArrayList<>();
+        for (List<Integer> s : finalAns) {
+            finalAl.add(s);
+        }
+        return finalAl;
     }
 }
