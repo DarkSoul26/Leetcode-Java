@@ -1,10 +1,10 @@
 class Solution {
-    List<List<Integer>> al;
+    Set<List<Integer>> al;
     public void combi(int[] a, int t, int sum, List<Integer> al1){
         if(sum == t){
             List<Integer> al2 = new ArrayList<>(al1);
             Collections.sort(al2);
-            if(!al.contains(al2))
+            // if(!al.contains(al2))
                 al.add(al2);
             return;
         }
@@ -21,8 +21,12 @@ class Solution {
         }
     }
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        al = new ArrayList<>();
+        al = new HashSet<>();
         combi(candidates, target, 0, new ArrayList<>());
-        return al;
+        List<List<Integer>> alFinal = new ArrayList<>();
+        for(List<Integer> l: al){
+            alFinal.add(l);
+        }
+        return alFinal;
     }
 }
