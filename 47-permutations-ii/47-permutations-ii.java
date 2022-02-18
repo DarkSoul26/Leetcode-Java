@@ -20,10 +20,10 @@ class Solution {
         finalAns = new HashSet<>();
         boolean a[] = new boolean[nums.length];
         permute(nums, new ArrayList<Integer>(), a);
-        // List<List<Integer>> finalAl = new ArrayList<>();
-        // for (List<Integer> s : finalAns) {
-        //     finalAl.add(s);
-        // }
-        return new ArrayList<>(finalAns);
+        List<List<Integer>> finalAl = new ArrayList<>();
+        for (List<Integer> s : finalAns) {
+            finalAl.add(s);
+        }
+        return finalAl;
     }
 }
