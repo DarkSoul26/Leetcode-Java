@@ -15,7 +15,6 @@ class Solution {
         alFinal = new ArrayList<>();
         List<Integer> al = new ArrayList<>();
         subIt(nums, 0, al);
-        
         return alFinal;
     }
 }
