@@ -1,16 +1,20 @@
 class Solution {
     
-    public int maxProf(int[] a, int ind, int dp[]){
-        if(ind <= 0)
+    public int robMe(int[] a, int i, int dp[]){
+        if(i>=a.length)
             return 0;
-        if(dp[ind-1]!=-1)
-            return dp[ind-1];
-        dp[ind-1]=Math.max(maxProf(a,ind-1,dp),maxProf(a,ind-2,dp)+a[ind-1]);
-        return dp[ind-1];
+        if(dp[i]!=-1)
+            return dp[i];
+        // int robIt = 0, dontRob = 0;
+        // dontRob = robMe(a, i+1, false, dp);
+        // if(!adjRob)
+        //     robIt = a[i]+robMe(a, i+1, true, dp);
+        dp[i]=Math.max(robMe(a,i+1,dp),robMe(a,i+2,dp)+a[i]);
+        return dp[i];
     }
     public int rob(int[] nums) {
         int dp[] = new int[nums.length];
-        Arrays.fill(dp,-1);
-        return maxProf(nums, nums.length, dp);
+        Arrays.fill(dp, -1);
+        return robMe(nums, 0, dp);
     }
 }
