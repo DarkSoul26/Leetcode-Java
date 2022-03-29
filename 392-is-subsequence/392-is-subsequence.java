@@ -11,7 +11,6 @@ class Solution {
         for(int[] dp1: dp)
             Arrays.fill(dp1, -1);
         lcs(s, t, n, m, dp);
-        // System.out.println(dp[n][m]);
         if(dp[n][m]-1 == s.length())
             return true;
         else 
