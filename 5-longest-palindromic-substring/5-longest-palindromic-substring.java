@@ -10,9 +10,6 @@ class Solution {
             dp[i][0] = 0;
         for(int i=0;i<=n;i++)
             dp[0][i] = 0;
-        // int res = 0;
-        // int min = Integer.MAX_VALUE;
-        // int max = Integer.MIN_VALUE;
         int prevBest = Integer.MIN_VALUE;
         String str = "";
         for(int i=1;i<=n;i++){
@@ -20,23 +17,13 @@ class Solution {
                 if(s1.charAt(i-1) == s2.charAt(j-1)){
                     dp[i][j] = 1+dp[i-1][j-1];
                     if(dp[i][j]>prevBest){
-                        // if(i-dp[i][j]==0)
-                        //     str = s1.substring(i-dp[i][j]+1, i);
-                        // else
                         if(isPali(s1.substring(i-dp[i][j], i))){
                             str = s1.substring(i-dp[i][j], i);
                             prevBest = dp[i][j];
                         }
                     }
-                    // if(res<dp[i][j]){
-                    //     res = dp[i][j];
-                    // }
                 }
                 else{
-                    // if(dp[i-1][j-1]>prevBest){
-                    //     str = s1.substring(i-dp[i-1][j-1]-1, i-1);
-                    //     prevBest = dp[i-1][j-1];
-                    // }
                     dp[i][j] = 0;
                 }
             }
