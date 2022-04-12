@@ -7,20 +7,18 @@ class Solution {
         for (int j = 0; j < n; j++) {
             int lives = liveNeighbors(board, m, n, i, j);
 
-            // In the beginning, every 2nd bit is 0;
-            // So we only need to care about when will the 2nd bit become 1.
             if (board[i][j] == 1 && lives >= 2 && lives <= 3) {  
-                board[i][j] = 3; // Make the 2nd bit 1: 01 ---> 11
+                board[i][j] = 3; 
             }
             if (board[i][j] == 0 && lives == 3) {
-                board[i][j] = 2; // Make the 2nd bit 1: 00 ---> 10
+                board[i][j] = 2; 
             }
         }
     }
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            board[i][j] >>= 1;  // Get the 2nd state.
+            board[i][j] >>= 1;  
         }
     }
 }
