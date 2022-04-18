@@ -14,17 +14,22 @@
  * }
  */
 class Solution {
-    public void trav(TreeNode root, List<Integer> al){
+    int ans = -1, count = 0;
+    public void travInorder(TreeNode root, int k){
         if(root == null)
             return;
-        al.add(root.val);
-        trav(root.left, al);
-        trav(root.right, al);
+        
+        travInorder(root.left, k);
+        count++;
+        if(count == k && ans == -1){
+            ans = root.val;
+            return;
+        }
+        travInorder(root.right, k);
     }
     public int kthSmallest(TreeNode root, int k) {
-        List<Integer> al = new ArrayList<>();
-        trav(root, al);
-        Collections.sort(al);
-        return al.get(k-1);
+        travInorder(root, k);
+        return ans;
+        
     }
 }
