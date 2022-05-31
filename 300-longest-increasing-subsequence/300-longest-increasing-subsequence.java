@@ -1,18 +1,22 @@
 class Solution {
-    
+    //lis using binary search :)
     public int lengthOfLIS(int[] nums) {
         int dp[] = new int[nums.length];
-        Arrays.fill(dp, 1);
-        int n = nums.length;
-        int ans = 1;
-        for(int i=1;i<n;i++){
-            for(int j=0;j<i;j++){
-                if(nums[i]>nums[j]){
-                    dp[i] = Math.max(1+dp[j], dp[i]);
-                }
+        int last = 0;
+        for(int num: nums){
+            int left = 0, right = last, mid = -1;
+            while(left<right){
+                mid = left+(right-left)/2;
+                if(dp[mid]<num)
+                    left = mid+1;
+                else
+                    right = mid;
             }
-            ans = Math.max(ans, dp[i]);
+            
+            dp[left] = num;
+            if(left == last)
+                last++;
         }
-        return ans;
+        return last;
     }
 }
