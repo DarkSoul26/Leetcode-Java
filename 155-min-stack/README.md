@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/min-stack/">155. Min Stack</a></h2><h3>Easy</h3><hr><div><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<h2><a href="https://leetcode.com/problems/min-stack/">155. Min Stack</a></h2><h3>Medium</h3><hr><div><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 
 <p>Implement the <code>MinStack</code> class:</p>
 
@@ -9,6 +9,8 @@
 	<li><code>int top()</code> gets the top element of the stack.</li>
 	<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
 </ul>
+
+<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
