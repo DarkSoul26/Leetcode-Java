@@ -15,24 +15,18 @@
  */
 class Solution {
     List<Integer> al = new ArrayList<>();
-    int max_level = 0;
+    // int max_level = 0;
     void rightViewNextLvl(TreeNode q, int lvl){
-        if(q==null)
-          return;
-        if(max_level<lvl){
-          al.add(q.val);
-          max_level = lvl;
-        }
-        if(q.right!=null){
-          rightViewNextLvl(q.right,lvl+1);
-        }
-        if(q.left!=null){
-          rightViewNextLvl(q.left,lvl+1);
-        }
+        if(q == null)
+            return;
+        if(al.size()<=lvl)
+            al.add(q.val);
+        rightViewNextLvl(q.right, lvl+1);
+        rightViewNextLvl(q.left, lvl+1);  
         
     }
     public List<Integer> rightSideView(TreeNode root) {
-        rightViewNextLvl(root,1);
+        rightViewNextLvl(root,0);
         return al;
     }
 }
