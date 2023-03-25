@@ -13,7 +13,6 @@ class Solution {
         for(int i=0; i<n; i++)
             if(!visited[i]){
                 int curr = dfs(i, visited, new int[1]); 
-                //important step
                 sum = sum-curr;
                 res += curr*sum;
             }
