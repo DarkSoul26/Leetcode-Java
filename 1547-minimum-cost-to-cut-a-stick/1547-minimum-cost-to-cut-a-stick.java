@@ -37,8 +37,5 @@ class Solution {
             }
         }
         return dp[1][c];
-        // for(int[] arr: dp)
-        //     Arrays.fill(arr, -1);
-        // return cutIt(n, stick, 1, cuts.length, dp);
     }
 }
