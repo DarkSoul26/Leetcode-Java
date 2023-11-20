@@ -13,12 +13,6 @@ class Solution {
                 else
                     g++;
             }
-            // if(flag1 == -1 && m>0)
-            //     flag1 = i;
-            // if(flag2 == -1 && p>0)
-            //     flag2 = i;
-            // if(flag3 == -1 && g>0)
-            //     flag3 = i;
             if(m>0)
                 flag4 = i;
             if(p>0)
@@ -26,9 +20,7 @@ class Solution {
             if(g>0)
                 flag6 = i;
             ans+=m+g+p;
-            // ans+=(i == garbage.length-1?0:travel[i]);
         }
-        // System.out.println(flag4+" "+flag5+" "+flag6);
         for(int i=0;i<travel.length;i++){
             if(flag4 != -1 && flag4>i)
                 ans+=travel[i];
@@ -38,7 +30,6 @@ class Solution {
                 ans+=travel[i];
             
         }
-        // ans+=m+g+p;
         return ans;
     }
 }
